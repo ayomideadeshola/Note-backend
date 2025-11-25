@@ -8,14 +8,16 @@ const orderRoutes = require("./routes/orderRoutes");
 const reportRoutes = require("./routes/reportRoutes");
 const limiter = require("./middleware/rateLimiter");
 const { errorHandler } = require("./middleware/errorHandler");
-
+const securityMiddleware = require("./middleware/securityHeaders");
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+app.use(securityMiddleware);
+app.use(limiter);
 
 connectDB();
 
-app.use(limiter);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes);
