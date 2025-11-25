@@ -2,7 +2,6 @@
 node_modules/
 
 # Environment variables (VERY important)
-.env
 
 # Logs
 npm-debug.log*
@@ -17,6 +16,6 @@ coverage/
 *.log
 *.tmp
 
-.vscode/
 .idea/
 *.swp
+config.bat
